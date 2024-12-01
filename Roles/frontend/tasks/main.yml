@@ -11,7 +11,7 @@
     - name: Install Nginx
       ansible.builtin.dnf:
         name: nginx
-        state: installed
+        state: present
 
     - name: Copy nginx config file
       ansible.builtin.template:
