@@ -1,26 +1,23 @@
-- name: Frontend Playbook
-  hosts: all
-  become: yes
-  tasks:
-    - name: Disable Default Nginx
-      ansible.builtin.shell: dnf module disable nginx -y
 
-    - name: Enable Nginx 24 Version
-      ansible.builtin.shell: dnf module enable nginx:1.24 -y
+- name: Disable Default Nginx
+  ansible.builtin.shell: dnf module disable nginx -y
 
-    - name: Install Nginx
-      ansible.builtin.dnf:
-        name: nginx
-        state: present
+- name: Enable Nginx 24 Version
+  ansible.builtin.shell: dnf module enable nginx:1.24 -y
 
-    - name: Copy nginx config file
-      ansible.builtin.template:
-        src: nginx.conf
-        dest: /etc/nginx/nginx.conf
+- name: Install Nginx
+  ansible.builtin.dnf:
+    name: nginx
+    state: present
 
-    - name: Start nginx
-      ansible.builtin.systemd_service:
-        name: nginx
-        state: restarted
+- name: Copy nginx config file
+  ansible.builtin.template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+
+- name: Start nginx
+  ansible.builtin.systemd_service:
+    name: nginx
+    state: started
 
 
