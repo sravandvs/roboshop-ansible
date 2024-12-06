@@ -10,7 +10,7 @@
     state: installed
 
 - name: Load App Prerequisites
-  ansible.builtin.include.tasks:
+  ansible.builtin.include_tasks:
     file: app_prerequisites.yml
 
 - name: Install NodeJS Dependencies
@@ -18,5 +18,5 @@
     path: /app
 
 - name: SystemD setup
-  ansible.builtin.include.tasks:
+  ansible.builtin.include_tasks:
     file: systemd_setup.yml
