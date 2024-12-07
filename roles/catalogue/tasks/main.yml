@@ -5,3 +5,21 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: nodejs
+
+- name: Copy MongoDB repo file
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongodb.repo
+
+- name: Install MongoDB Client
+  ansible.builtin.dnf:
+    name: mongodb-mongosh
+    state: installed
+
+- name: Load Master Data
+  ansible.builtin.shell: mongosh --host mongodb-{{env}}.devopsdvs.online </app/db/master-data.js
+
+- name: Restart Catalogue Service
+  ansible.builtin.systemd_service:
+    name: catalogue
+    state: restarted
