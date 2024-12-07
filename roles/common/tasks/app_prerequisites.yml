@@ -9,6 +9,7 @@
 
 - name: Create Application Directory
   ansible.builtin.unarchive:
+    path: /app
     src: https://roboshop-artifacts.s3.amazonaws.com/{{ app_name }}-v3.zip
 
 
