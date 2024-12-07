@@ -8,10 +8,9 @@
     state: absent
 
 - name: Create Application Directory
-  ansible.builtin.unarchive:
+  ansible.builtin.file:
     path: /app
-    src: https://roboshop-artifacts.s3.amazonaws.com/{{ app_name }}-v3.zip
-
+    state: directory
 
 - name: Download and extract application content
   ansible.builtin.unarchive:
