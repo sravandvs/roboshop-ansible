@@ -10,7 +10,7 @@
 - name: Create Application Directory
   ansible.builtin.unarchive:
     src: https://roboshop-artifacts.s3.amazonaws.com/{{ app_name }}-v3.zip
-    dest: /app
+
 
 - name: Download and extract application content
   ansible.builtin.unarchive:
