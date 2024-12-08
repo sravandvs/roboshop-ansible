@@ -1,0 +1,28 @@
+- name: Set Prompt
+  ansible.builtin.shell: set-prompt {{ app_name }}-{{ env }}
+
+- name: Load NodeJS
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: nodejs
+
+- name: Copy Dispatch Service File
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/systemd/system/dispatch.service
+
+- name: Install GoLang
+  ansible.builtin.dnf:
+    name: golang
+    state: installed
+
+- name: Start Application Service
+  ansible.builtin.systemd_service:
+    name: dispatch
+    state: restarted
+
+
+
+
+
+
