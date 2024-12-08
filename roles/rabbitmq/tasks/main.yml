@@ -14,7 +14,7 @@
 - name: Start RabbitMQ Service
   ansible.builtin.systemd_service:
     name: rabbitmq-server
-    start: restarted
+    state: restarted
     enabled: yes
 
 - name: Add Application User
