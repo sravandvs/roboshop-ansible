@@ -19,6 +19,6 @@
     - master-data
 
 - name: Restart Shipping
-  ansible.builtin.system_service:
+  ansible.builtin.systemd_service:
     name: shipping
     state: restarted
