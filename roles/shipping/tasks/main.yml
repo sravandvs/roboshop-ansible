@@ -12,7 +12,7 @@
     state: installed
 
 - name: Load SQL file
-  ansible.builtin.shell: mysql -h mysql-{{ env }}.devopsdvs.online -uroot -p{{ lookup('hashi_vault', 'secret=roboshop-{{env}}/data/frontend:mysql_root_password token={{ vault_token }} url=http://vault-internal.devopsdvs.online:8200')}}
+  ansible.builtin.shell: mysql -h mysql-{{ env }}.devopsdvs.online -uroot -p{{ lookup('hashi_vault', 'secret=roboshop-{{env}}/data/shipping:mysql_root_password token={{ vault_token }} url=http://vault-internal.devopsdvs.online:8200')}}
   loop:
     - schema
     - app-user
