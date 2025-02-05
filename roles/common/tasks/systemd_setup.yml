@@ -2,8 +2,7 @@
   ansible.builtin.template:
     src: "{{ component
  }}.service"
-    dest: /etc/systemd/system/{{ component
- }}.service
+    dest: /etc/systemd/system/{{ component }}.service
 
 - name: Start Application Service
   ansible.builtin.systemd_service:
