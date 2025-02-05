@@ -1,6 +1,5 @@
 - name: Set Prompt
-  ansible.builtin.shell: set-prompt {{ component
- }}-{{ env }}
+  ansible.builtin.shell: set-prompt {{ component }}-{{ env }}
 
 - name: Copy RabbitMQ Repo file
   ansible.builtin.copy:
