@@ -1,6 +1,5 @@
 - name: Set Prompt
-  ansible.builtin.shell: set-prompt {{ component
- }}-{{ env }}
+  ansible.builtin.shell: set-prompt {{ component }}-{{ env }}
 
 - name: Disable Default Redis
   ansible.builtin.shell: dnf module disable redis -y
