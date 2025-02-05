@@ -1,6 +1,5 @@
 - name: Set Prompt
-  ansible.builtin.shell: set-prompt {{ component
- }}-{{ env }}
+  ansible.builtin.shell: set-prompt {{ component }}-{{ env }}
 
 - name: Load NodeJS
   ansible.builtin.include_role:
